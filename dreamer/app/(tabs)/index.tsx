@@ -7,7 +7,7 @@ import { Text, View } from '@/components/Themed';
 import {Camera, CameraType} from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
 
-import Button from './Button';
+import Button from '../../components/Button';
 
 export default function TabOneScreen() {
   const [hasCameraPermission, setHasCameraPermission] = useState<boolean|null>(null);
