@@ -6,7 +6,7 @@ export default function Button({title, onPress, icon, color}) {
     return (
         <TouchableOpacity onPress={onPress} style={styles.button}>
             <Entypo name={icon} size={28} color={color ? color : '#702963'}/>
-            <Text style={styles.text}>(title)</Text>
+            <Text style={styles.text}>{title}</Text>
         </TouchableOpacity>
     )
 }

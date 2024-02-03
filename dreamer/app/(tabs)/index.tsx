@@ -75,8 +75,6 @@ export default function TabOneScreen() {
 
   return (
     <View style={styles.container}>
-      
-    
       {!image ?
       <Camera
         style={styles.camera}
@@ -89,11 +87,11 @@ export default function TabOneScreen() {
             justifyContent: 'space-between',
             padding: 15,
           }}>
-            <Button icon={'retweet'} 
+            <Button icon={'cycle'}
             onPress={() => {
               setType(type === CameraType.back ? CameraType.front : CameraType.back)
             }}/>
-            <Button icon={'flash'} 
+            <Button icon={'flash'}
             color={flash === Camera.Constants.FlashMode.off ? 'gray' : '#f1f1f1'}
             onPress={() => {
               setFlash(flash == Camera.Constants.FlashMode.off 
@@ -112,11 +110,11 @@ export default function TabOneScreen() {
           justifyContent: 'space-between',
           paddingHorizontal: 50
         }}>
-          <Button title={"Re-take"} icon="retweet" onPress={() => setImage(null)}/>
+          <Button title={"Re-take"} icon="cross" onPress={() => setImage(null)}/>
           <Button title={"Save"} icon="check" onPress={saveImage}/>
         </View>
         :
-          <Button title={'Take a picture'} color={'#702963'} icon='camera' onPress={takePicture}/>
+          <Button color={'#702963'} icon='camera' onPress={takePicture}/>
         }
         </View>
     </View>
