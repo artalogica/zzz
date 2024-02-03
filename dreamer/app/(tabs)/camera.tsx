@@ -33,7 +33,9 @@ export default function TabOneScreen() {
   }, [])
 
   const takePicture = async () => {
+
     if (cameraRef && cameraRef.current != undefined) {
+
       try{
         const data = await cameraRef.current.takePictureAsync();
         console.log(data);
@@ -120,6 +122,7 @@ export default function TabOneScreen() {
   }
 
   if(hasCameraPermission === false || hasCameraPermission === undefined) {
+
     return <Text>No access to camera</Text>
   }
 
@@ -198,3 +201,4 @@ const styles = StyleSheet.create({
     width: "100%"
   }
 });
+
