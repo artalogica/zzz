@@ -56,13 +56,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="awake"
         options={{
-<<<<<<< Updated upstream
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-=======
           title: 'Sleep',
-        tabBarIcon: ({ color }) => <Entypo name="moon" color={color} size={28} />,
->>>>>>> Stashed changes
+          tabBarIcon: ({ color }) => <Entypo name="moon" color={color} size={28} />,
         }}
       />
     </Tabs>
