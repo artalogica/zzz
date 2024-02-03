@@ -1,18 +1,16 @@
-import { StyleSheet, TouchableOpacity} from 'react-native';
+import React from 'react';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
 
 export default function TabTwoScreen() {
-  const handleButtonPress = () => {
-  // Add functionality for button press here
-  //navigation.navigate('Tab One')
-  };
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={handleButtonPress}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('../')}>
         <Text style={styles.buttonText}>I'M AWAKE!</Text>
-      </TouchableOpacity> 
+      </TouchableOpacity>
     </View>
   );
 }
@@ -22,7 +20,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#000'
+    backgroundColor: '#000',
   },
   title: {
     fontSize: 20,
