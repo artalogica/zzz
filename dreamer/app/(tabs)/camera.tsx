@@ -95,7 +95,7 @@ export default function TabOneScreen() {
         }}>
           <Button title={"Re-take"} icon="cross" onPress={() => setImage(null)} />
           <Button title={"Save"} icon="check" onPress={saveImage}/>
-          <Button title={"Post"} icon="paper-plane"/>
+          <Button title={"Post"} icon="paper-plane" onPress={sharePic}/>
         </View>
         :
         <View style={{
@@ -103,7 +103,7 @@ export default function TabOneScreen() {
           justifyContent: 'space-between',
           paddingHorizontal: 20,
         }}>
-          <Button icon={'cycle'}
+          <Button icon={'cycle'} color={'gray'}
           onPress={() => {
             setType(type === CameraType.back ? CameraType.front : CameraType.back)
           }}/>
