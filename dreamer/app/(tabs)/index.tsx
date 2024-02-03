@@ -108,10 +108,12 @@ export default function TabOneScreen() {
         <View style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
-          paddingHorizontal: 50
+          paddingHorizontal: 10,
+
         }}>
-          <Button title={"Re-take"} icon="cross" onPress={() => setImage(null)}/>
+          <Button title={"Re-take"} icon="cross" onPress={() => setImage(null)} />
           <Button title={"Save"} icon="check" onPress={saveImage}/>
+          <Button title={"Post"} icon="paper-plane"/>
         </View>
         :
           <Button color={'#702963'} icon='camera' onPress={takePicture}/>
@@ -127,7 +129,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     paddingBottom: 15
   },
   title: {
@@ -142,6 +144,7 @@ const styles = StyleSheet.create({
   camera: {
     flex:1,
     borderRadius: 10,
+    justifyContent: 'space-between',
     width: "100%"
   }
 });

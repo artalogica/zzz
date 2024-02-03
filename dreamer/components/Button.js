@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
+        paddingHorizontal: 20,
     },
     text: {
         fontWeight: 'bold',
