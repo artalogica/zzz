@@ -82,26 +82,10 @@ export default function TabOneScreen() {
         flashMode={flash}
         ref={cameraRef}
         >
-          <View style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            padding: 15,
-          }}>
-            <Button icon={'cycle'}
-            onPress={() => {
-              setType(type === CameraType.back ? CameraType.front : CameraType.back)
-            }}/>
-            <Button icon={'flash'}
-            color={flash === Camera.Constants.FlashMode.off ? 'gray' : '#f1f1f1'}
-            onPress={() => {
-              setFlash(flash == Camera.Constants.FlashMode.off 
-                ? Camera.Constants.FlashMode.on
-                : Camera.Constants.FlashMode.off )
-            }}/>
-          </View>
+           <Image source={{uri: image}} style={styles.camera} />
         </Camera>
         :
-        <Image source={{uri: image}} style={styles.camera} />
+        <Button color={'#702963'} icon='camera' onPress={takePicture}/>
       }
       <View>
         {image ?
@@ -109,14 +93,31 @@ export default function TabOneScreen() {
           flexDirection: 'row',
           justifyContent: 'space-between',
           paddingHorizontal: 10,
-
         }}>
           <Button title={"Re-take"} icon="cross" onPress={() => setImage(null)} />
           <Button title={"Save"} icon="check" onPress={saveImage}/>
           <Button title={"Post"} icon="paper-plane"/>
         </View>
         :
+        <View style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          padding: 15,
+        }}>
+          <Button icon={'cycle'}
+          onPress={() => {
+            setType(type === CameraType.back ? CameraType.front : CameraType.back)
+          }}/>
           <Button color={'#702963'} icon='camera' onPress={takePicture}/>
+          <Button icon={'flash'}
+          color={flash === Camera.Constants.FlashMode.off ? 'gray' : '#f1f1f1'}
+          onPress={() => {
+            setFlash(flash == Camera.Constants.FlashMode.off 
+              ? Camera.Constants.FlashMode.on
+              : Camera.Constants.FlashMode.off )
+          }}/>
+        </View>
+         
         }
         </View>
     </View>

@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontWeight: 'bold',
+        fontFamily: 'Serif',
         fontSize: 16,
         color: '#702963',
         marginLeft: 10
