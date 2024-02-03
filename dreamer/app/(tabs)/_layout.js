@@ -4,7 +4,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
 import { useCallback} from 'react';
 import {useFonts} from 'expo-font';
-import {Entypo} from '@expo/vector-icons'
+import {Entypo, AntDesign} from '@expo/vector-icons'
 import * as SplashScreen from 'expo-splash-screen';
 
 SplashScreen.preventAutoHideAsync();
@@ -71,15 +71,23 @@ export default function TabLayout() {
             name="camera"
             options={{
             title: 'Camera',
-            tabBarIcon: ({ color }) => <Entypo name="camera" color={color} size={28}/>
+            tabBarIcon: ({ color }) => <AntDesign name="smileo" color={color} size={28}/>
             }}
         />
 
       <Tabs.Screen
         name="two"
         options={{
-          title: 'Tab Two',
+          title: 'Feed',
         tabBarIcon: ({ color }) => <Entypo name="moon" color={color} size={28} />,
+        }}
+      />
+
+    <Tabs.Screen
+        name="three"
+        options={{
+          title: 'Awake',
+        tabBarIcon: ({ color }) => <Entypo name="clock" color={color} size={28} />,
         }}
       />
     </Tabs>

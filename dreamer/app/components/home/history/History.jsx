@@ -1,13 +1,21 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView} from 'react-native'
 
 import styles from './history.style'
 
 const History = () => {
   return (
-    <View>
-      <Text>HistorySleep</Text>
-    </View>
+    <SafeAreaView>
+      {/* <Image 
+        source = {{uri}}
+        style = {[
+          styles.image,
+          aviOnly && {height: 35, width:35,
+          borderWidth: 0},
+          imgStyle,
+        ]}
+      /> */}
+    </SafeAreaView>
   )
 }
 

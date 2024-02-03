@@ -6,6 +6,10 @@ const styles = StyleSheet.create({
   container: {
     marginTop: SIZES.xLarge,
   },
+  image: {
+    width: 150,
+    height:150
+  },
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
