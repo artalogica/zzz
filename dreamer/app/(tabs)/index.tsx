@@ -102,13 +102,13 @@ export default function TabOneScreen() {
         <View style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
-          padding: 15,
+          paddingHorizontal: 20,
         }}>
           <Button icon={'cycle'}
           onPress={() => {
             setType(type === CameraType.back ? CameraType.front : CameraType.back)
           }}/>
-          <Button color={'#702963'} icon='camera' onPress={takePicture}/>
+          <Button color={'#f1f1f1'} icon='camera' onPress={takePicture}/>
           <Button icon={'flash'}
           color={flash === Camera.Constants.FlashMode.off ? 'gray' : '#f1f1f1'}
           onPress={() => {
