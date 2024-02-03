@@ -31,7 +31,8 @@
     },
     "plugins": [
       "expo-camera",
-      "expo-font"
+      "expo-font",
+      "expo-router"
     ],
     "experiments": {
       "typedRoutes": true
