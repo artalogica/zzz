@@ -1,4 +1,5 @@
 import React from 'react';
+import { Stack } from 'expo-router';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
 import { useCallback} from 'react';
@@ -14,14 +15,28 @@ import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+// function TabBarIcon(props: {
+//   name: React.ComponentProps<typeof FontAwesome>['name'];
+//   color: string;
+// }) {
+//   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+// }
 
 export default function TabLayout() {
+    const [fontsLoaded] = useFonts({
+        DMBold: require('../assets/fonts/DMSans-Bold.ttf'),
+        DMMedium: require('../assets/fonts/DMSans-Medium.ttf'),
+        DMRegulat: require('../assets/fonts/DMSans-Regular.ttf')
+    })
+
+    const onLayoutRootView = useCallback(async () => {
+        if(fontsLoaded){
+            await SplashScreen.hideAsync();
+        }
+    }, [fontsLoaded])
+
+    if(!fontsLoaded) return null;
+
   const colorScheme = useColorScheme();
 
   return (
@@ -33,10 +48,11 @@ export default function TabLayout() {
         headerShown: useClientOnlyValue(false, true),
       }}>
       <Tabs.Screen
+        onLayout = {onLayoutRootView}
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        //   tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -57,7 +73,7 @@ export default function TabLayout() {
         name="two"
         options={{
           title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        //   tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
     </Tabs>
