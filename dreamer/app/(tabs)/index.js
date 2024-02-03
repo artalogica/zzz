@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Text, ScrollView, SafeAreaView, View } from 'react-native';
+import { Text, ScrollView, SafeAreaView, View, Linking } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import { StyleSheet } from 'react-native';
 
