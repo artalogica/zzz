@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, TouchableOpacity, StyleSheet, Linking} from 'react-native';
 import {Entypo} from '@expo/vector-icons'
 
 export default function Button({title, onPress, icon, color}) {
@@ -8,7 +8,7 @@ export default function Button({title, onPress, icon, color}) {
             <Entypo name={icon} size={28} color={color ? color : 'gray'}/>
             <Text style={styles.text}>{title}</Text>
         </TouchableOpacity>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
