@@ -4,6 +4,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
 import { useCallback} from 'react';
 import {useFonts} from 'expo-font';
+import {Entypo} from '@expo/vector-icons'
 import * as SplashScreen from 'expo-splash-screen';
 
 SplashScreen.preventAutoHideAsync();
@@ -14,13 +15,9 @@ import Colors from '@/app/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
 
-// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-// function TabBarIcon(props: {
-//   name: React.ComponentProps<typeof FontAwesome>['name'];
-//   color: string;
-// }) {
-//   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-// }
+function TabBarIcon(props) {
+    return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+  }
 
 export default function TabLayout() {
     const [fontsLoaded] = useFonts({
@@ -52,7 +49,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Home',
-        //   tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+           tabBarIcon: ({ color }) => <Entypo name="home" color={color} size={28}/>,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -69,11 +66,20 @@ export default function TabLayout() {
           ),
         }}
       />
+
+        <Tabs.Screen
+            name="camera"
+            options={{
+            title: 'Camera',
+            tabBarIcon: ({ color }) => <Entypo name="camera" color={color} size={28}/>
+            }}
+        />
+
       <Tabs.Screen
         name="two"
         options={{
           title: 'Tab Two',
-        //   tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        tabBarIcon: ({ color }) => <Entypo name="moon" color={color} size={28} />,
         }}
       />
     </Tabs>
