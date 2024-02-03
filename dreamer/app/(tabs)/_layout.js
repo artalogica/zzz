@@ -1,6 +1,12 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
+import { useCallback} from 'react';
+import {useFonts} from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+
+SplashScreen.preventAutoHideAsync();
+
 import { Pressable } from 'react-native';
 
 import Colors from '@/app/constants/Colors';
