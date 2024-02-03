@@ -6,6 +6,10 @@ import { Pressable } from 'react-native';
 import Colors from '@/app/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
+import { UserProvider } from '@realm/react';
+//import { UserProvider } from "./(auth)/user.context"
+import { UserContext } from "../context/user.context"
+
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
@@ -17,6 +21,11 @@ function TabBarIcon(props: {
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+
+  const  {user} = UserContext();
+  if (true) {
+    return <Redirect href="../(auth)/Login.page" />;
+  }
 
   return (
     <Tabs
