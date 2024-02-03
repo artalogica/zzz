@@ -1,31 +1,41 @@
 import React, { useState, useEffect, useRef} from 'react';
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, Image, SafeAreaView, Platform } from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
+import * as ImagePicker from 'expo-image-picker';
+import Constants from "expo-constants";
+import * as Permissions from "expo-permissions";
 
 import {Camera, CameraType} from 'expo-camera';
+import {shareAsync} from 'expo-sharing';
+
 import * as MediaLibrary from 'expo-media-library';
 
-import Button from '../../components/Button';
+import Button from '../components/Button';
 
 export default function TabOneScreen() {
   const [hasCameraPermission, setHasCameraPermission] = useState<boolean|null>(null);
+  const [hasMediaLibraryPermission, setHasMediaLibraryPermission] = useState<boolean|null>(null);
   const [image, setImage] = useState<string|null>(null);
   const [type, setType] = useState(CameraType.back);
   const [flash, setFlash] = useState(Camera.Constants.FlashMode.off);
-  const cameraRef = useRef<Camera>(null);
+  const cameraRef = useRef();
 
   useEffect( () => {
     (async () => {
-      MediaLibrary.requestPermissionsAsync();
       const cameraStatus = await Camera.requestCameraPermissionsAsync();
+      const MediaLibraryPermission = await MediaLibrary.requestPermissionsAsync();
+
       setHasCameraPermission(cameraStatus.status == 'granted');
+      setHasMediaLibraryPermission(MediaLibraryPermission.status == "granted");
     }) ();
   }, [])
 
   const takePicture = async () => {
-    if (cameraRef) {
+
+    if (cameraRef && cameraRef.current != undefined) {
+
       try{
         const data = await cameraRef.current.takePictureAsync();
         console.log(data);
@@ -48,6 +58,48 @@ export default function TabOneScreen() {
     }
   }
 
+  // const displayImage = async () => {
+  //   return (
+  //     <View style = {styles.container}>
+  //       <Image style = {styles.camera}>
+  //         source = {{image}}
+  //       </Image>
+  //     </View>
+  //   )
+  // }
+
+  const sharePic= async () => {
+    const uploadUri = image;
+    let filename = uploadUri?.substring(uploadUri.lastIndexOf('/') + 1);
+
+    setUploading(true);
+
+    try {
+      // await ImagePicker.requestCameraPermissionsAsync();
+      // let result = await ImagePicker.launchCameraAsync();
+      await storage().ref(filename).putFile(uploadUri);
+      setUploading(false);
+    } catch (error) {
+      console.log(e);
+    }
+  };
+
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
+    }
+  };
+
   const CameraPreview = ({photo}: any) => {
     console.log('sdsfds', photo)
     return (
@@ -69,12 +121,13 @@ export default function TabOneScreen() {
     )
   }
 
-  if(hasCameraPermission === false) {
+  if(hasCameraPermission === false || hasCameraPermission === undefined) {
+
     return <Text>No access to camera</Text>
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {!image ?
       <Camera
         style={styles.camera}
@@ -95,7 +148,7 @@ export default function TabOneScreen() {
         }}>
           <Button title={"Re-take"} icon="cross" onPress={() => setImage(null)} />
           <Button title={"Save"} icon="check" onPress={saveImage}/>
-          <Button title={"Post"} icon="paper-plane"/>
+          <Button title={"Post"} icon="paper-plane" onPress={sharePic}/>
         </View>
         :
         <View style={{
@@ -119,7 +172,7 @@ export default function TabOneScreen() {
          
         }
         </View>
-    </View>
+    </SafeAreaView>
     
   );
   }
@@ -148,3 +201,4 @@ const styles = StyleSheet.create({
     width: "100%"
   }
 });
+
