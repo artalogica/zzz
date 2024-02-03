@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native';
 
 import { EditScreenInfo } from '../components';
 import { COLORS, icons, images, SIZES } from '../constants';
-import { FeedHome, History, Welcome, ScreenHeaderBtn } from '../components';
+import { FeedHome, History, Welcome, ScreenHeaderBtn, Stats } from '../components';
 
 const Home = () => {
     const router = useRouter();
@@ -36,7 +36,7 @@ const Home = () => {
                     <Welcome />
                     <FeedHome />
                     <History />
-
+                    <Stats />
                 </View>
             </ScrollView>
         </SafeAreaView>

@@ -11,6 +11,7 @@ import Profile from "./sleepdetails/profile/Profile";
 // import { default as JobAbout } from "./jobdetails/about/About";
 // import { default as JobFooter } from "./jobdetails/footer/Footer";
 import Specifics from "./sleepdetails/specifics/Specifics";
+import Stats from "./sleepdetails/stats/stats";
 
 // common
 import NearbyJobCard from "./common/cards/nearby/NearbyJobCard";
@@ -25,5 +26,6 @@ export {
   // JobAbout,
   // JobFooter,
   Specifics,
-  NearbyJobCard
+  NearbyJobCard,
+  Stats
 };
