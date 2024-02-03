@@ -34,6 +34,8 @@ const Stats = () => {
     };
   return (
     <View style = {styles.container}>
+        <Text style = {styles.header}> Here's your nights wrapped: </Text>
+
       <Text style = {styles.text}>fell asleep at</Text> 
       <Text style = {styles.text2}>{fellAsleepTime+'\n'}</Text>
 

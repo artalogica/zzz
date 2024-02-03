@@ -1,5 +1,6 @@
 import React, {useState , useEffect } from 'react';
 import { StyleSheet, TouchableOpacity, Linking } from 'react-native';
+import { COLORS, FONT, icons, images, SIZES } from '../constants';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     width: '80%',
   },
   button: {
-    backgroundColor: '#75559B', // Button background color
+    backgroundColor: COLORS.primary, // Button background color
     padding: 20,
     borderRadius: 5,
     marginTop: 20,

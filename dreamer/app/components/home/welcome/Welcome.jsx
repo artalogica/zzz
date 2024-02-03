@@ -10,6 +10,8 @@ import {
 
 import { useRouter } from 'expo-router';
 
+const img = require("../../../assets/images/IMG_9180.png");
+
 import styles from './welcome.style'
 
 const Welcome = () => {
@@ -19,18 +21,12 @@ const Welcome = () => {
   return (
     <View>
       <View style = {styles.container}>
-        <Text style = {styles.userName} > Hello _user_name_</Text>
-        <Text style = {styles.welcomeMessage}> Get a good sleep schedule</Text>
+        <Text style = {styles.welcomeMessage} > Hello Lillian!</Text>
       </View>
-
-      <View style = {styles.searchContainer}>
-        <View style = {styles.searchWrapper}>
-          <TextInput
-            style = {styles.searchInput}
+      <Image
+            style = {styles.profile}
+            source = {img}
           />
-        </View>
-      </View>
-
     </View>
   )
 }

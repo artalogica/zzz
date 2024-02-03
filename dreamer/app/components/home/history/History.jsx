@@ -1,21 +1,25 @@
 import React from 'react'
-import { View, Text, SafeAreaView} from 'react-native'
+import { View, Text, SafeAreaView, TextInput} from 'react-native'
+import { useRouter } from 'expo-router';
 
 import styles from './history.style'
 
 const History = () => {
+
+  const router = useRouter();
+
   return (
-    <SafeAreaView>
-      {/* <Image 
-        source = {{uri}}
-        style = {[
-          styles.image,
-          aviOnly && {height: 35, width:35,
-          borderWidth: 0},
-          imgStyle,
-        ]}
-      /> */}
-    </SafeAreaView>
+    <View>
+      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <Text style = {styles.welcomeMessage}> how much of a dreamer {'\n'} were you last night?</Text>
+      <View style = {styles.searchContainer}>
+        <View style = {styles.searchWrapper}>
+          <TextInput
+            style = {styles.searchInput}
+          />
+          </View>
+        </View>
+    </View>
   )
 }
 

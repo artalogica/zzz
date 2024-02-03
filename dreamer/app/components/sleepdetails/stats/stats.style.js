@@ -19,9 +19,20 @@ const styles = StyleSheet.create({
     fontSize: SIZES.large,
     color: COLORS.secondary,
   },
+  header: {
+    fontFamily: FONT.medium, 
+    fontSize: SIZES.large,
+    color: COLORS.secondary,
+    paddingBottom: 20,
+  },
   tabsContainer: {
     width: "100%",
     marginTop: SIZES.medium,
+  },
+  separator: {
+    marginVertical: 30,
+    height: 1,
+    width: '80%',
   },
   tab: (activeJobType, item) => ({
     paddingVertical: SIZES.small / 2,

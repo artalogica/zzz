@@ -4,6 +4,7 @@ import { Stack, useRouter } from 'expo-router';
 import { StyleSheet, Image } from 'react-native';
 import Icon from '@expo/vector-icons/Entypo';
 import Posts from '../components/Posts';
+import {Entypo, AntDesign} from '@expo/vector-icons'
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
@@ -30,9 +31,9 @@ const Home = () => {
                     headerLeft: () => (
                         <ScreenHeaderBtn iconUrl = {icons.menu} dimension = "60%" />
                     ),
-                    headerRight: () => {
-                        <ScreenHeaderBtn iconUrl = {images.profile} dimension = "100%" />
-                    },
+                    headerRight: () => (
+                        <ScreenHeaderBtn Entypo name="moon" dimension = "60%" />
+                    ),
                     headerTitle: "Welcome"
                 }}
             />
