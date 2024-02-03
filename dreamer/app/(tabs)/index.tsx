@@ -82,10 +82,9 @@ export default function TabOneScreen() {
         flashMode={flash}
         ref={cameraRef}
         >
-           <Image source={{uri: image}} style={styles.camera} />
         </Camera>
         :
-        <Button color={'#702963'} icon='camera' onPress={takePicture}/>
+        <Image source={{uri: image}} style={styles.camera} />
       }
       <View>
         {image ?
