@@ -6,10 +6,32 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
   },
+  contentContainer: {
+    padding: 20,
+  },
   userName: {
     fontFamily: FONT.regular,
     fontSize: SIZES.large,
     color: COLORS.secondary,
+  },
+  log: {
+    paddingTop: 20,
+    fontFamily: FONT.medium,
+    fontSize: SIZES.medium,
+    textAlign: 'center',
+    color: COLORS.secondary,
+  },
+  box: {
+    width: 300,
+    height: 300,
+    marginLeft: 30,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius:20,
+    borderBottomRightRadius:20,
+    borderBottomLeftRadius:20,
+    borderColor: COLORS.lightWhite,
+    borderWidth: 3,
+    paddingBottom:30,
   },
   separator: {
     marginVertical: 20,

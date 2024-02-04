@@ -32,7 +32,7 @@ const Home = () => {
                         <ScreenHeaderBtn iconUrl = {icons.menu} dimension = "60%" />
                     ),
                     headerRight: () => (
-                        <ScreenHeaderBtn Entypo name="moon" dimension = "60%" />
+                        <ScreenHeaderBtn Entypo name= "moon" dimension = "60%" />
                     ),
                     headerTitle: "Welcome"
                 }}
