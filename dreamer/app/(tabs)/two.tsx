@@ -1,3 +1,4 @@
+
 import { StyleSheet, Image, ScrollView } from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
@@ -10,8 +11,12 @@ const img_3 = require("../assets/images/IMG_9926.png");
 const img_4 = require("../assets/images/IMG_9927.png");
 const img_5 = require("../assets/images/IMG_9928.png");
 
-
+const navigation = useNavigation();
 export default function TabTwoScreen() {
+  const handleButtonPress = () => {
+    // Add functionality for button press here
+    navigation.navigate('Tab One')
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Don't Sleep on your Feed</Text>
@@ -65,15 +70,17 @@ export default function TabTwoScreen() {
           <Text style= {styles.more}> See More...</Text>
       </ScrollView>
     </View>
+    
   );
 }
-
+ 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 50,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#000000'
   },
   title: {
     fontSize: 20,
@@ -100,6 +107,7 @@ const styles = StyleSheet.create({
     height: 1,
     width: '80%',
   },
+
   comment: {
     paddingTop: 10,
     fontFamily: FONT.regular,
@@ -177,4 +185,5 @@ leftArrowOverlap: {
     paddingTop:40,
     textAlign: 'center',
   }
+
 });
