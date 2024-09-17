@@ -5,6 +5,20 @@ import { COLORS, FONT, SIZES } from "../../../constants";
 const styles = StyleSheet.create({
   container: {
     width: "100%",
+    alignItems: "center",
+    paddingTop: 20,
+  },
+  profile: {
+    paddingTop: 30,
+    marginTop: 10,
+    marginLeft: 75,
+    paddingLeft: 50,
+    alignItems: "center",
+    borderRadius: 100,
+    borderWidth: 3,
+    borderColor: COLORS.primary,
+    height: 200,
+    width: 200,
   },
   userName: {
     fontFamily: FONT.regular,

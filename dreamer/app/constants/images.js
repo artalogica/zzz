@@ -1,4 +1,4 @@
-import profile from "../assets/images/kemal.jpg";
+import profile from "../assets/images/IMG_9926.png";
 
 export default {
   profile,

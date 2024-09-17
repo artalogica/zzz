@@ -2,7 +2,7 @@ import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn";
 
 // home screen
 import Welcome from "./home/welcome/Welcome";
-import FeedHome from "./home/feed/feed";
+import Stats from "./sleepdetails/stats/stats";
 import History from "./home/history/History";
 
 // job details screen
@@ -18,7 +18,7 @@ import NearbyJobCard from "./common/cards/nearby/NearbyJobCard";
 export {
   ScreenHeaderBtn,
   Welcome,
-  FeedHome,
+  Stats,
   History,
   Profile,
   // JobTabs,
